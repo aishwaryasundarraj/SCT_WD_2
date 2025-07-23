@@ -1,0 +1,95 @@
+:root {
+  --primary-bg: #181820;
+  --secondary-bg: #232a39;
+  --primary-color: #e5e5e5;
+  --accent: #1de9b6;
+  --control-bg: #2f364d;
+  --btn-hover: #24bfa7;
+  --btn-inactive: #464c5a;
+}
+body {
+  margin: 0; padding: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: var(--primary-bg);
+  color: var(--primary-color);
+  min-height: 100vh;
+  transition: background 0.3s, color 0.3s;
+}
+.app-container {
+  max-width: 360px;
+  margin: 40px auto;
+  background: var(--secondary-bg);
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(44,44,84,0.20);
+}
+h1 { text-align: center; letter-spacing: 1px; }
+
+.stopwatch-display {
+  font-size: 2.2rem;
+  text-align: center;
+  margin: 22px 0;
+  letter-spacing: 1.5px;
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 12px;
+}
+.controls {
+  display: flex; justify-content: center; gap: 12px; margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.controls button {
+  background: var(--control-bg);
+  color: var(--primary-color);
+  border: none;
+  font-size: 1rem;
+  border-radius: 6px;
+  padding: 10px 18px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+.controls button:disabled {
+  background: var(--btn-inactive);
+  color: #aaa;
+  cursor: not-allowed;
+}
+.controls button:not(:disabled):hover {
+  background: var(--btn-hover);
+  transform: translateY(-2px) scale(1.05);
+}
+.lap-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 180px;
+  overflow-y: auto;
+  font-size: 1rem;
+}
+.lap-list li {
+  display: flex; justify-content: space-between;
+  padding: 7px 0;
+  border-bottom: 1px dashed #233;
+  opacity: 0;
+  animation: fadeIn 0.6s forwards;
+}
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* LIGHT MODE */
+body.light {
+  --primary-bg: #faf9fb;
+  --secondary-bg: #ffffff;
+  --primary-color: #181820;
+  --accent: #15c8aa;
+  --control-bg: #e3e6ee;
+  --btn-hover: #45bfa7;
+  --btn-inactive: #cccccc;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .app-container { margin: 8px; padding: 10px; }
+  .stopwatch-display { font-size: 1.2rem; }
+  .controls { gap: 6px; }
+  .controls button { font-size: 0.97rem; padding: 6px 8px; }
+}
