@@ -111,7 +111,7 @@ lapBtn.onclick = () => {
 };
 themeBtn.onclick = () => {
   document.body.classList.toggle('light');
-  themeBtn.textContent = document.body.classList.contains('light') ? "🌞" : "🌙";
+  themeBtn.textContent = document.body.classList.contains('light') ? "🌤️" : "🌙";
   saveState();
 };
 
